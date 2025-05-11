@@ -1,0 +1,47 @@
+﻿
+html, body
+
+{
+    height: 100%;
+    margin: 0;
+}
+
+.pantalla-completa {
+    min-height: 100vh; /* Ocupa el 100% de la altura del viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+img#logo {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+seccion-landingPage {
+    margin: 1.5rem 0 2rem 0;
+}
+.cabecera {
+    font-weight: bold;
+}
+.productos ul {
+    list-style: none;
+    padding-left: 0;
+}
+.productos i {
+    color: gray;
+    font-size: 30px;
+}

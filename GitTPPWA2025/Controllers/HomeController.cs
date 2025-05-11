@@ -22,6 +22,18 @@ namespace GitTPPWA2025.Controllers
         {
             return View();
         }
+        public IActionResult Texto()
+        {
+            return View();
+        }
+        public IActionResult Tab()
+        {
+            return View();
+        }
+        public IActionResult Formulario()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

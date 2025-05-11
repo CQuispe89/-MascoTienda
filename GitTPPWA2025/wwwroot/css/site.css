@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+.img-producto {
+    width: 100%;
+    max-width: 300px; /* o el tamaño que prefieras */
+    height: 250px; /* altura fija */
+    object-fit: cover; /* recorta y ajusta la imagen para que se vea bien */
+    border-radius: 10px;
+}
