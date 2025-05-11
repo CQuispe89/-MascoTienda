@@ -1,66 +1,15 @@
-﻿@model Empresa
+﻿@model PorfolioVM
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<partial name ="_Presentacion" />
+<partial name="_Servicios" />
+<partial name="_Sucursales" , model="Model.filials" />
 
-<div class="pantalla-completa">
 
-    <div>
-        <h1 class="display-4">¡Bienvenido a MascoTienda!</h1>
-        <p style="font-size: 1.2rem; font-weight: normal; color: #555;">
-            En MascoTienda vas a encontrar alimentos, juguetes y accesorios para tus mascotas.
-            Donde podras compra de forma rápida, simple e intuitiva.
-        </p>
-        <img id="logo" src="~/imag/MascotTienda.jpg" alt="logo empresa" />
-    </div>
-    <br />
-    <div class="row justify-content-center text-center bg-secondary">
-        <div class="col-auto seccion-landingPage text-white px-4 py-3" style="font-family: 'Roboto Slab', serif;">
-            <h2 style="font-family: 'Quicksand', sans-serif;">Descripción de la empresa</h2>
-            <p>
-            En Mascotienda creemos que cada mascota merece lo mejor. Por eso, trabajamos con productos de calidad y un equipo
-            comprometido para brindar atención personalizada. Nos enfocamos en construir un espacio donde la confianza, el cariño por los animales
-            y la innovación se combinan para mejorar la vida de nuestros clientes y sus compañeros de cuatro patas.
-        </p>
-    </div>
-    </div>
-    <div style="margin-top: -10px">
-    <div class="row justify-content-center text-center">
-            <div class="col col-5 bg-white mx-2 productos" style="border-radius: 15px 0 0 15px; box-shadow: 0 5px 5px 0 gray">
-            <i class="bi bi-basket-fill"></i>
-
-            <h3>Producto</h3>
-            <p>Todo lo que tu mascota necesita para una vida feliz y saludable</p>
-            <p class="text-primary cabecera"> Rubro: </p>
-            <p>Alimentos y Accesorios para Mascotas</p>
-            <p class="text-primary cabecera"> Producto: </p>
-            <ul>
-                <li>Alimento balanceado</li>
-                <li>Juguetes interactivos</li>
-                <li>Camas y colchonetas</li>
-                <li>Correas y arneses</li>
-            </ul>
-        </div>
-
-            <div class="col col-5 bg-white mx-2 productos" style="border-radius: 0 15px 15px 0; box-shadow: 0 5px 5px 0 gray">
-             <i class="bi bi-briefcase-fill"></i>
-            <h3>Servicios</h3>
-            <p>Atención personalizada y cuidado profesional para tus mascotas.</p>
-            <p class="text-primary cabecera"> Rubro: </p>
-            <p>Servicios Veterinarios y de Estética Animal personalizada</p>
-            <p class="text-primary cabecera"> Servicios: </p>
-            <ul>
-                <li>Baño y peluquería</li>
-                <li>Desparasitación</li>
-                <li>Atención veterinaria</li>
-                <li>Vacunación</li>
-            </ul>
-        </div>
-    </div>
-    <br />
-    <footer>
-        <small>@Model.RazonSocial CUIT @Model.cuit</small>
-    </footer>
-</div>
+<footer class="bg-light text-center py-3 mt-5 border-top">
+    <small>@Model.empresa.RazonSocial - CUIT @Model.empresa.cuit</small>
+</footer>
+   

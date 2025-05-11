@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Contacto</h1>
+
+
+<form asp-controller="ProyectoMascoTienda" asp-action="Contacto">
+    <div class="mb-2">
+        <label class="form-label">Nombre o Razón Social</label>
+        <input class="form-control" name="razonsocial" placeholder="Nombre o Razón social" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Correo electronico</label>
+        <input type="email" class="form-control" name="Correo electronico" placeholder="Correo@dominio.com" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Solicitud</label>
+        <textarea class="form-control" name="detalle" rows="3" placeholder="Su solicitud"></textarea>
+    </div>
+    <button class="btn btn-success">Enviar</button>
+</form>
+
+
+<footer class="bg-light text-center py-3 mt-5 border-top">
+    <div class="container">
+        <p class="mb-1"><strong>Atención Telefónica:</strong><br />0810-220-2345</p>
+        <p class="mb-1"><strong>Atención Whatsapp:</strong><br />+54-911-6702-6320</p>
+        <p class="mb-0">Lunes a Sábados de 9 a 21 hs<br />Domingos de 10 a 20 hs</p>
+    </div>
+</footer>

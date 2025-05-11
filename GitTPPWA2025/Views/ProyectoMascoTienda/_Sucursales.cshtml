@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Filial>
+<div style="margin-top: 110px; margin-bottom: 90px;">
+    @if (Model is not null)
+    {
+        <div class="text-center">
+            <h1>Sucursales</h1>
+
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var filial in Model)
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="@filial.Imagen" class="car-img-top" alt="imagen filial" />
+                            <div class="card-body">
+                                <h2 class="card-title">@filial.Numero</h2>
+                                <h3 class="card-title">@filial.Ciudad</h3>
+                                <p class="card-text">@filial.Detalle</p>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-secondary">Info</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+</div>

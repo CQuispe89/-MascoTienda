@@ -45,3 +45,36 @@ seccion-landingPage {
     color: gray;
     font-size: 30px;
 }
+.img-16by9 {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio (9/16 = 0.5625 * 100) */
+    overflow: hidden;
+}
+
+.img-16by9 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-ajustada {
+    height: 250px; /* Podés ajustar según necesidad */
+    object-fit: cover;
+    width: 100%;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
