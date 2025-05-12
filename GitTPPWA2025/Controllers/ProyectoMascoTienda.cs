@@ -62,6 +62,23 @@ namespace GitTPPWA2025.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult Alerta()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Alerta(string razonSocial)
+        {
+            if (string.IsNullOrWhiteSpace(razonSocial))
+            {
+                TempData["AlertMessage"] = "Debe ingresar la Razón Social.";
+                return RedirectToAction("Index");
+            }
+            TempData["AlertMessage"] = $"Razón Social ingresada: {razonSocial}";
+            return RedirectToAction("Index");
+        }
+        
         private List<Filial> ObtenerFiliales()
         {
             return new List<Filial> {
@@ -79,7 +96,7 @@ namespace GitTPPWA2025.Controllers
                  Imagen ="/imag/imag_Mendoza2.jpg",
                  Detalle="En Mendoza, te esperamos con una amplia variedad de productos para el cuidado y bienestar de tus mascotas. Además, ofrecemos servicios de peluquería y consultas veterinarias con turnos programados."
              },
-                 new Filial
+               new Filial
              {
                  Numero=66,
                  Ciudad="Rio Negro",
@@ -108,13 +125,35 @@ namespace GitTPPWA2025.Controllers
                  ImagenProducto ="/imag_productos/ProplaPuppy_3k.jpg",
                  Precio=39.80f
              },
-                 new Producto
+                new Producto
              {
                  Código=8907,
                  Descripción="Pro Plan Reducido Calorías 3k",
                  ImagenProducto ="/imag_productos/ProplanOtros_3k.jpg",
                  Precio=48.00f
              },
+                new Producto
+             {
+                 Código=8905,
+                 Descripción="Royal Canin Cachorro 1.5k",
+                 ImagenProducto ="/imag_productos/RoyalCanin_Cachorro.jpg",
+                 Precio=28.00f
+             },
+                new Producto
+             {
+                 Código=8906,
+                 Descripción="Royal Canin Fit 1.5k",
+                 ImagenProducto ="/imag_productos/RoyalCanin_Fit_1.5k.jpg",
+                 Precio=31.00f
+             },
+                new Producto
+             {
+                 Código=8904,
+                 Descripción="Balanced 3k",
+                 ImagenProducto ="/imag_productos/Balanced_gato.jpg",
+                 Precio=25.00f
+             },
+
 
             };
         }

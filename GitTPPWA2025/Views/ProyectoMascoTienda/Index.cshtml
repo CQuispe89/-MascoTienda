@@ -8,6 +8,13 @@
 <partial name="_Servicios" />
 <partial name="_Sucursales" , model="Model.filials" />
 
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert  alert-warning">
+        <strong>Atención</strong> @TempData["AlertMessage"]
+    </div>
+}
+
 
 <footer class="bg-light text-center py-3 mt-5 border-top">
     <small>@Model.empresa.RazonSocial - CUIT @Model.empresa.cuit</small>

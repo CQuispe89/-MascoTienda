@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form asp-controller="ProyectoMascoTienda" asp-action="Alerta" method="post">
+    <div class="mb-2">
+        <label class="form-label">Razón Social</label>
+        <input class="form-control" name="razonSocial" placeholder="Razón Social" />
+    </div>
+
+    <button class="btn btn-success">Enviar</button>
+
+</form>
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const razonSocialInput = document.querySelector("input[name='razonSocial']");
+        const valor = razonSocialInput.value.trim();
+
+        if (valor === "") {
+            e.preventDefault(); // Evita que se envíe el formulario
+            alert("Debe ingresar la Razón Social.");
+        }
+    });
+</script>
