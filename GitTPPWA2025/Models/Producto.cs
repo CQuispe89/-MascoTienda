@@ -6,5 +6,7 @@
         public string Descripción { get; set; }
         public string ImagenProducto { get; set; }
         public float Precio { get; set; }
+
+        public string CategoriaAnimal { get; set; }
     }
 }

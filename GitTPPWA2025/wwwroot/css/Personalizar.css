@@ -7,7 +7,7 @@ html, body
 }
 
 .pantalla-completa {
-    min-height: 100vh; /* Ocupa el 100% de la altura del viewport */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,7 +48,7 @@ seccion-landingPage {
 .img-16by9 {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 ratio (9/16 = 0.5625 * 100) */
+    padding-top: 56.25%;
     overflow: hidden;
 }
 
@@ -62,7 +62,7 @@ seccion-landingPage {
 }
 
 .img-ajustada {
-    height: 250px; /* Podés ajustar según necesidad */
+    height: 250px;
     object-fit: cover;
     width: 100%;
 }
@@ -78,3 +78,30 @@ body {
 main {
     flex: 1;
 }
+.carousel-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-inner {
+    background-color: transparent;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+.ayuda-popup {
+    display: none;
+}
+
+.ayuda-hover:hover .ayuda-popup {
+    display: block;
+}
+
+
+

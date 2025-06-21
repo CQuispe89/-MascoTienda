@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Promociones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="row w-100">
+        <!-- Carrusel -->
+        <div class="col-md-8 mb-4">
+            <div id="CauroselEjemplo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="@Url.Content("~/imag_Promociones/Promociones.jpg")" class="carousel-img w-100" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="@Url.Content("~/imag_Promociones/PromocionesGato.jpg")" class="carousel-img w-100" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="@Url.Content("~/imag_Promociones/PromocionesOtros.jpg")" class="carousel-img w-100" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="@Url.Content("~/imag_Promociones/PromocionesProPlan.jpg")" class="carousel-img w-100" />
+                    </div>
+                </div>
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#CauroselEjemplo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#CauroselEjemplo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#CauroselEjemplo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#CauroselEjemplo" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#CauroselEjemplo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#CauroselEjemplo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="bg-white border rounded shadow-sm p-3 w-100" style="max-width: 300px;">
+                <h6 class="fw-bold mb-3">Promociones válidas</h6>
+                <p class="mb-2"><small>Del 5 hasta el 30 de junio.</small></p>
+                <p class="fw-semibold mb-1">Bancos adheridos:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fa-solid fa-building-columns me-2 text-primary"></i>
+                        <span class="text-decoration-underline text-primary">Banco Nación</span>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-building-columns me-2 text-success"></i>
+                        <span class="text-decoration-underline text-success">Banco Provincia</span>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-building-columns me-2 text-warning"></i>
+                        <span class="text-decoration-underline text-warning">Banco Galicia</span>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-building-columns me-2 text-danger"></i>
+                        <span class="text-decoration-underline text-danger">Banco Santander</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+

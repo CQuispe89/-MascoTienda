@@ -7,45 +7,36 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/Personalizar.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MascoTienda</a>
 
+    <partial name="_EncabezadoSuperior" />
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="Productos">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="Accesorios">Accesorios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="ListadoFiliales">Sucursales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="Contacto">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProyectoMascoTienda" asp-action="Alerta">Alerta</a>
-                        </li>
-                        </ul>
-                </div>
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">MascoTienda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="Productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="Accesorios">Accesorios</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="ListadoFiliales">Sucursales</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="Contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ProyectoMascoTienda" asp-action="Promociones">Promociones</a></li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -56,6 +47,41 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<footer class="bg-light text-center py-3 mt-0 border-top">
+    <div class="container">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- Teléfono -->
+            <div class="col-12 col-md-3 mb-2">
+                <p class="mb-0"><strong>Atención Telefónica:</strong><br />0810-220-2345</p>
+            </div>
 
+            <!-- Horarios -->
+            <div class="col-12 col-md-4 mb-2">
+                <p class="mb-0"><strong>Horarios:</strong><br />
+                    Lunes a Sábados de 9 a 21 hs<br />
+                    Domingos de 10 a 20 hs
+                </p>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="col-12 col-md-4 mb-2">
+                <p class="mb-2"><strong>Seguinos en nuestras redes:</strong></p>
+                <a href="https://facebook.com" target="_blank" class="text-dark me-3">
+                    <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="text-dark me-3">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://wa.me/5491167026320" target="_blank" class="text-dark me-3">
+                    <i class="fab fa-whatsapp fa-lg"></i>
+                </a>
+                <a href="mailto:contacto@tusitio.com" class="text-dark">
+                    <i class="fas fa-envelope fa-lg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

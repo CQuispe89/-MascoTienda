@@ -1,34 +1,69 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Contacto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Contacto</h1>
+<div class="container mt-5 mb-5">
+    <h1 class="text-center mb-4">Contacto</h1>
 
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <form id="formContacto" asp-controller="ProyectoMascoTienda" asp-action="Contacto" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nombre o Razón Social</label>
+                    <input class="form-control" name="razonsocial" placeholder="Nombre o Razón Social" />
+                </div>
 
-<form asp-controller="ProyectoMascoTienda" asp-action="Contacto">
-    <div class="mb-2">
-        <label class="form-label">Nombre o Razón Social</label>
-        <input class="form-control" name="razonsocial" placeholder="Nombre o Razón social" />
+                <div class="mb-3">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" name="correo" placeholder="correo@dominio.com" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Solicitud</label>
+                    <textarea class="form-control" name="detalle" rows="4" placeholder="Mensaje"></textarea>
+                </div>
+
+                <div id="alerta" class="alert alert-danger d-none" role="alert">
+                    Debe ingresar su Nombre o Razón Social.
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-success">Enviar mensaje</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="mb-2">
-        <label class="form-label">Correo electronico</label>
-        <input type="email" class="form-control" name="Correo electronico" placeholder="Correo@dominio.com" />
-    </div>
 
-    <div class="mb-3">
-        <label class="form-label">Solicitud</label>
-        <textarea class="form-control" name="detalle" rows="3" placeholder="Su solicitud"></textarea>
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-8 text-center">
+            <h4 class="mb-3">Nuestra ubicación</h4>
+            <!-- Google Maps embed: reemplazá la URL con tu dirección -->
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13138.694947294546!2d-58.4370898!3d-34.6024445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb5da38f4f71%3A0x1d75892b76e4126f!2sAv.%20Corrientes%201234%2C%20CABA!5e0!3m2!1ses!2sar!4v1719037843098"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     </div>
-    <button class="btn btn-success">Enviar</button>
-</form>
+</div>
 
+<script>
+    document.querySelector("#formContacto").addEventListener("submit", function (e) {
+        const razonSocialInput = this.querySelector("input[name='razonsocial']");
+        const valor = razonSocialInput.value.trim();
+        const alerta = document.querySelector("#alerta");
 
-<footer class="bg-light text-center py-3 mt-5 border-top">
-    <div class="container">
-        <p class="mb-1"><strong>Atención Telefónica:</strong><br />0810-220-2345</p>
-        <p class="mb-1"><strong>Atención Whatsapp:</strong><br />+54-911-6702-6320</p>
-        <p class="mb-0">Lunes a Sábados de 9 a 21 hs<br />Domingos de 10 a 20 hs</p>
-    </div>
-</footer>
+        if (valor === "") {
+            e.preventDefault();
+            alerta.classList.remove("d-none");
+        } else {
+            alerta.classList.add("d-none");
+        }
+    });
+</script>

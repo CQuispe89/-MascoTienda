@@ -30,17 +30,18 @@ namespace GitTPPWA2025.Controllers
 
         }
 
-        public IActionResult Productos()
+        public IActionResult ListaProductos() 
         {
-            var productos = ObtenerProductos(); // esto NO puede ser null
-            return View(productos);
+            var productos = ObtenerProductos();
+            return View("Productos", productos); 
         }
 
-        public IActionResult Accesorios()
+        public IActionResult ListaAccesorios() 
         {
-            var accesorios = ObtenerAccesorios(); // esto NO puede ser null
-            return View(accesorios);
+            var accesorios = ObtenerAccesorios();
+            return View("Productos", accesorios); 
         }
+        
         public IActionResult ListadoFiliales()
         {
             var filiales = ObtenerFiliales().Take(3).ToList();
@@ -78,7 +79,10 @@ namespace GitTPPWA2025.Controllers
             TempData["AlertMessage"] = $"Razón Social ingresada: {razonSocial}";
             return RedirectToAction("Index");
         }
-        
+        public IActionResult Promociones()
+        {
+            return View();
+        }
         private List<Filial> ObtenerFiliales()
         {
             return new List<Filial> {
@@ -116,42 +120,48 @@ namespace GitTPPWA2025.Controllers
                  Código=2390,
                  Descripción="Pro Plan Adulto 20k",
                  ImagenProducto ="/imag_productos/PoplanAdulto_20k.jpg",
-                 Precio=78.00f
+                 Precio=78.00f,
+                 CategoriaAnimal = "Perro"
              },
                new Producto
              {
                  Código=1456,
                  Descripción="Pro Plan Puppy 3k",
                  ImagenProducto ="/imag_productos/ProplaPuppy_3k.jpg",
-                 Precio=39.80f
+                 Precio=39.80f,
+                 CategoriaAnimal = "Perro"
              },
                 new Producto
              {
                  Código=8907,
                  Descripción="Pro Plan Reducido Calorías 3k",
                  ImagenProducto ="/imag_productos/ProplanOtros_3k.jpg",
-                 Precio=48.00f
+                 Precio=48.00f,
+                 CategoriaAnimal = "Perro"
              },
                 new Producto
              {
                  Código=8905,
                  Descripción="Royal Canin Cachorro 1.5k",
                  ImagenProducto ="/imag_productos/RoyalCanin_Cachorro.jpg",
-                 Precio=28.00f
+                 Precio=28.00f,
+                 CategoriaAnimal = "Gato"
              },
                 new Producto
              {
                  Código=8906,
                  Descripción="Royal Canin Fit 1.5k",
                  ImagenProducto ="/imag_productos/RoyalCanin_Fit_1.5k.jpg",
-                 Precio=31.00f
+                 Precio=31.00f,
+                 CategoriaAnimal = "Gato"
              },
                 new Producto
              {
                  Código=8904,
                  Descripción="Balanced 3k",
                  ImagenProducto ="/imag_productos/Balanced_gato.jpg",
-                 Precio=25.00f
+                 Precio=25.00f,
+                 CategoriaAnimal = "Gato"
              },
 
 
@@ -165,32 +175,140 @@ namespace GitTPPWA2025.Controllers
                  Código=2870,
                  Descripción="Comedero para perros",
                  ImagenProducto ="/imag_Accesorios/Comedero.jpg",
-                 Precio=5000.00f
+                 Precio=5000.00f,
+                 CategoriaAnimal = "Perro"
              },
                new Producto
              {
                  Código=2871,
                  Descripción="Dispensador de comida para perros",
                  ImagenProducto ="/imag_Accesorios/DispenserDeComida.jpg",
-                 Precio=15000.80f
+                 Precio=15000.80f,
+                 CategoriaAnimal = "Perro"
              },
                  new Producto
              {
                  Código=2872,
                  Descripción="Hueso plástico",
                  ImagenProducto ="/imag_Accesorios/HuesoPlastico.jpg",
-                 Precio=3000.00f
+                 Precio=3000.00f,
+                 CategoriaAnimal = "Perro"
              },
                  new Producto
              {
                  Código=2870,
                  Descripción="Hueso plástico con soga",
                  ImagenProducto ="/imag_Accesorios/HuesoSoga.jpg",
-                 Precio=5000.00f
+                 Precio=5000.00f,
+                 CategoriaAnimal = "Perro"
+             },
+                 new Producto
+             {
+                 Código=2870,
+                 Descripción="Juguete para gatos",
+                 ImagenProducto ="/imag_Accesorios/JugueteGato.jpg",
+                 Precio=4000.00f,
+                 CategoriaAnimal = "Gato"
+             },
+                 new Producto
+             {
+                 Código=2870,
+                 Descripción="Pelota para gatos",
+                 ImagenProducto ="/imag_Accesorios/PelotaGato.jpg",
+                 Precio=5000.00f,
+                 CategoriaAnimal = "Gato"
+             },
+                 new Producto
+             {
+                 Código=2870,
+                 Descripción="Rascador para gatos",
+                 ImagenProducto ="/imag_Accesorios/RascadorGato.jpg",
+                 Precio=10000.00f,
+                 CategoriaAnimal = "Gato"
+             },
+                 new Producto
+             {
+                 Código=2870,
+                 Descripción="Transportador para gatos",
+                 ImagenProducto ="/imag_Accesorios/TransportadorGato.jpg",
+                 Precio=25000.00f,
+                 CategoriaAnimal = "Gato"
              },
 
             };
 
         }
+        public IActionResult ListarProductos(string busqueda)
+        {
+            var productos = ObtenerProductos();
+
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                productos = productos
+                    .Where(p =>
+                        p.Descripción.Contains(busqueda, StringComparison.OrdinalIgnoreCase) ||
+                        p.Código.ToString().Contains(busqueda))
+                    .ToList();
+            }
+
+            return View(productos);
+        }
+
+        public IActionResult Accesorios(string busqueda)
+        {
+            var accesorios = ObtenerAccesorios();
+
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                accesorios = accesorios
+                    .Where(a => a.Descripción.Contains(busqueda, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
+            return View(accesorios);
+        }
+        public IActionResult Productos(string busqueda, string categoriaAnimal)
+        {
+            var productos = ObtenerProductos(); // o tu método real
+
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                productos = productos
+                    .Where(p => p.Descripción.Contains(busqueda, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoriaAnimal))
+            {
+                productos = productos
+            .Where(p => p.CategoriaAnimal == categoriaAnimal)
+            .ToList();
+            }
+
+            return View(productos);
+        }
+
+        public IActionResult BusquedaAccesorios (string busqueda, string categoriaAnimal)
+        {
+            var productos = ObtenerAccesorios(); // o tu método real
+
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                productos = productos
+                    .Where(p => p.Descripción.Contains(busqueda, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoriaAnimal))
+            {
+                productos = productos
+            .Where(p => p.CategoriaAnimal == categoriaAnimal)
+            .ToList();
+            }
+
+            return View(productos);
+        }
+
+
     }
 }
