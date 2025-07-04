@@ -5,7 +5,7 @@
         public Empresa empresa { get; set; }
         public IEnumerable<Filial> filials { get; set; }
 
-        public List<Producto> productos { get; set; }
-        public List<Producto> accesorios { get; set; }
+        public List<Producto_> productos { get; set; }
+        public List<Producto_> accesorios { get; set; }
     }
 }

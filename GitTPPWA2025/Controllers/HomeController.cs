@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using GitTPPWA2025.Data;
 using GitTPPWA2025.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,13 @@ namespace GitTPPWA2025.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MascoTiendaContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        
+        public HomeController(MascoTiendaContext _context)
         {
-            _logger = logger;
+            context=_context;
+
         }
 
         public IActionResult Index()

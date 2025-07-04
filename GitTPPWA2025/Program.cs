@@ -1,7 +1,16 @@
+using GitTPPWA2025.Data;
+using GitTPPWA2025.ModelsEF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MascoTiendaContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionSQL"))
+);
 
 var app = builder.Build();
 

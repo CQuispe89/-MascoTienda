@@ -112,10 +112,10 @@ namespace GitTPPWA2025.Controllers
             };
         }
 
-        private List<Producto> ObtenerProductos()
+        private List<Producto_> ObtenerProductos()
         {
-            return new List<Producto> {
-             new Producto
+            return new List<Producto_> {
+             new Producto_
              {
                  Código=2390,
                  Descripción="Pro Plan Adulto 20k",
@@ -123,7 +123,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=78.00f,
                  CategoriaAnimal = "Perro"
              },
-               new Producto
+               new Producto_
              {
                  Código=1456,
                  Descripción="Pro Plan Puppy 3k",
@@ -131,7 +131,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=39.80f,
                  CategoriaAnimal = "Perro"
              },
-                new Producto
+                new Producto_
              {
                  Código=8907,
                  Descripción="Pro Plan Reducido Calorías 3k",
@@ -139,7 +139,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=48.00f,
                  CategoriaAnimal = "Perro"
              },
-                new Producto
+                new Producto_
              {
                  Código=8905,
                  Descripción="Royal Canin Cachorro 1.5k",
@@ -147,7 +147,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=28.00f,
                  CategoriaAnimal = "Gato"
              },
-                new Producto
+                new Producto_
              {
                  Código=8906,
                  Descripción="Royal Canin Fit 1.5k",
@@ -155,7 +155,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=31.00f,
                  CategoriaAnimal = "Gato"
              },
-                new Producto
+                new Producto_
              {
                  Código=8904,
                  Descripción="Balanced 3k",
@@ -167,10 +167,10 @@ namespace GitTPPWA2025.Controllers
 
             };
         }
-        private List<Producto> ObtenerAccesorios()
+        private List<Producto_> ObtenerAccesorios()
         {
-            return new List<Producto> {
-             new Producto
+            return new List<Producto_> {
+             new Producto_
              {
                  Código=2870,
                  Descripción="Comedero para perros",
@@ -178,7 +178,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=5000.00f,
                  CategoriaAnimal = "Perro"
              },
-               new Producto
+               new Producto_
              {
                  Código=2871,
                  Descripción="Dispensador de comida para perros",
@@ -186,7 +186,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=15000.80f,
                  CategoriaAnimal = "Perro"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2872,
                  Descripción="Hueso plástico",
@@ -194,7 +194,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=3000.00f,
                  CategoriaAnimal = "Perro"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2870,
                  Descripción="Hueso plástico con soga",
@@ -202,7 +202,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=5000.00f,
                  CategoriaAnimal = "Perro"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2870,
                  Descripción="Juguete para gatos",
@@ -210,7 +210,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=4000.00f,
                  CategoriaAnimal = "Gato"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2870,
                  Descripción="Pelota para gatos",
@@ -218,7 +218,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=5000.00f,
                  CategoriaAnimal = "Gato"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2870,
                  Descripción="Rascador para gatos",
@@ -226,7 +226,7 @@ namespace GitTPPWA2025.Controllers
                  Precio=10000.00f,
                  CategoriaAnimal = "Gato"
              },
-                 new Producto
+                 new Producto_
              {
                  Código=2870,
                  Descripción="Transportador para gatos",

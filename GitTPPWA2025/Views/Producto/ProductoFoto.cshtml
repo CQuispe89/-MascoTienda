@@ -1,0 +1,41 @@
+﻿@model List<GitTPPWA2025.DAL.Producto>
+
+@{
+    ViewData["Title"] = "ProductoFoto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Productos con sus Fotos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Fotos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.Descripcion</td>
+                <td>$@producto.Precio</td>
+                <td>
+                    @if (producto.Fotos != null && producto.Fotos.Any())
+                    {
+                        foreach (var foto in producto.Fotos)
+                        {
+                            <img src="~/imag_productos/@foto.Foto" class="rounded" style="width:100px; height:100px;" />
+
+                        }
+                    }
+                    else
+                    {
+                        <span>Sin fotos</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
