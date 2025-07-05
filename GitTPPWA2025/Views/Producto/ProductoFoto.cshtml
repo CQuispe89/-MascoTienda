@@ -7,12 +7,18 @@
 
 <h2>Lista de Productos con sus Fotos</h2>
 
+<a class="btn btn-success mb-3" asp-action="Crear" asp-controller="Producto">
+    <i class="bi bi-plus-circle"></i> Crear nuevo producto
+</a>
+
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>Descripción</th>
             <th>Precio</th>
-            <th>Fotos</th>
+            <th>Categoría</th>
+            <th>Foto</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +27,7 @@
             <tr>
                 <td>@producto.Descripcion</td>
                 <td>$@producto.Precio</td>
+                <td>@producto.IdCategoriaNavigation?.CategoriaAnimal</td>
                 <td>
                     @if (producto.Fotos != null && producto.Fotos.Any())
                     {
@@ -34,6 +41,13 @@
                     {
                         <span>Sin fotos</span>
                     }
+                </td>
+                <td>
+                    <a asp-controller="Producto" asp-action="Actualizar" asp-route-id="@producto.IdProducto" class="btn btn-warning btn-sm">Editar</a>
+
+                    <form asp-controller="Producto" asp-action="Eliminar" asp-route-id="@producto.IdProducto" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
                 </td>
             </tr>
         }

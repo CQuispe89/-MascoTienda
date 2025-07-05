@@ -1,0 +1,47 @@
+﻿@model GitTPPWA2025.ModelsEF.ProductoVM
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        <form asp-action="Crear" asp-controller="Producto" method="post" enctype="multipart/form-data">
+            @* Descripción *@
+            <div class="mb-2">
+                <label class="form-label" asp-for="Descripcion"></label>
+                <input type="text" class="form-control form-control-sm" asp-for="Descripcion" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            @* Precio *@
+            <div class="mb-2">
+                <label class="form-label" asp-for="Precio"></label>
+                <input type="number" class="form-control form-control-sm" asp-for="Precio" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+            @* Categoría *@
+            <div class="mb-2">
+                <label class="form-label" asp-for="IdCategoria">Categoría</label>
+                <select asp-for="IdCategoria" class="form-control form-control-sm" asp-items="Model.ListaCategorias">
+                    <option value="">Seleccione una categoría</option>
+                </select>
+                <span asp-validation-for="IdCategoria" class="text-danger"></span>
+            </div>
+
+            @* Foto *@
+            <div class="mb-2">
+                <label class="form-label" asp-for="FotoPath">Foto</label>
+                <input type="file" class="form-control" asp-for="FotoPath" />
+                <span asp-validation-for="FotoPath" class="text-danger"></span>
+            </div>
+
+            @* Botones *@
+            <div class="mb-2">
+                <button class="btn btn-primary" type="submit">Crear</button>
+                <a class="btn btn-info" asp-action="Index" asp-controller="Producto">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
